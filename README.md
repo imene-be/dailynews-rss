@@ -1,29 +1,48 @@
-Développé par Imène Bentifraouine et Nassim Bentifraouine
+# DailyNews
 
-# DailyNews Application - Vue.js
+Un lecteur de flux RSS pour suivre en un seul endroit les actualités de ses sources préférées. Application Vue.js : on enregistre ses flux, on les parcourt et on lit chaque article.
 
-DailyNews est une application de gestion centralisée des flux RSS qui permet à l'utilisateur d'enregistrer, gérer et afficher des actualités provenant de flux RSS, avec des fonctionnalités de sauvegarde des préférences et de recherche des news.
+## Fonctionnalités
 
-## Prérequis
+- Ajouter un flux RSS (titre et adresse)
+- Liste de ses flux, avec suppression
+- Parcourir les articles d'un flux, puis ouvrir le détail d'un article
+- Préférences enregistrées : flux favoris mémorisés d'une visite à l'autre
+- Données conservées dans le navigateur (`localStorage`), sans compte à créer
+- Page dédiée pour les adresses introuvables
 
-Assurez-vous d'avoir les outils suivants installés sur votre machine :
-- **Node.js** (version 14 ou supérieure)
-- **npm** (le gestionnaire de packages de Node.js)
+## Technologies
 
-## Installation et lancement de l'application
+- Vue 3
+- Vue Router 4
+- Vite 6
+- Analyse des flux XML avec le `DOMParser` du navigateur
 
-1. **Cloner le projet** :
-   Si vous n'avez pas encore cloné le projet, utilisez la commande suivante :
-   ```bash
-   git clone https://github.com/EmiPretty/dailynews.git
+## Pages
 
-2. **Installation des dépendances :**
-    cd dailynews
-    npm install
+| Adresse | Contenu |
+|---|---|
+| `/` | liste des flux |
+| `/add` | formulaire d'ajout d'un flux |
+| `/preferences` | préférences enregistrées |
+| `/news/:Index` | articles d'un flux |
+| `/news/:Index/:newsIndex` | détail d'un article |
 
-3. **Lancer le serveur de développement** :
-    npm run dev
+## Lancer le projet
 
-4. **Accéder à l'application :**
-    Ouvrez votre navigateur et allez sur http://localhost:5173 pour voir l'application en fonctionnement.
+Prérequis : Node.js 18 ou plus récent.
 
+```bash
+git clone https://github.com/imene-be/dailynews-rss.git
+cd dailynews-rss
+npm install
+npm run dev
+```
+
+L'application est disponible sur [http://localhost:5173](http://localhost:5173).
+
+Certains flux refusent les requêtes faites directement depuis un navigateur (règle CORS) : si un flux ne se charge pas, essayez-en un autre.
+
+---
+
+Développé par [Imène Bentifraouine](https://imenebe.fr) et Nassim Bentifraouine.
